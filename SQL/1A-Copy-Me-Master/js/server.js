@@ -1,28 +1,29 @@
 const express = require('express');
-const bookData = require('./data/books.json');
+const mysql = require('mysql2');
+
+const PORT = process.env.PORT || 3001;
 const app = express();
 
+// Middleware for POST
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
 
-const PORT = 3001;
+// Connect to database
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'books',  // <-- Change to your database name
+}, console.log(`Connected to the database.`));
 
-app.get('/books', (req, res) => {
-    res.sendFile(__dirname + '/public/books.html');
+db.query('SELECT * FROM books', function(_, results) {
+    console.log("results", results);
 });
 
-app.get('/api/allbooks', (req, res) => {
-    res.json(bookData);
+app.use((_, res) => {
+    res.status(404).end();
 });
 
-app.post('/api/newbook', (req, res) => {
-    res.json(`${req.method} was received!`);
-});
-
-app.get('/api/bunchofbooks', (req, res) => {
-    res.json(`${req.method} this needs to be a post!`);
-});
-
-app.post('/api/bunchofbooks', (req, res) => {
-    res.json(`${req.method} was received! Bunch of Books!`);
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
