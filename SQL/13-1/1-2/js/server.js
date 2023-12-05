@@ -26,3 +26,5 @@ app.get('/api/bunchofbooks', (req, res) => {
 app.post('/api/bunchofbooks', (req, res) => {
     res.json(`${req.method} was received! Bunch of Books!`);
 });
+
+console
