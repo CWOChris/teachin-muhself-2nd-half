@@ -1,0 +1,12 @@
+<h1>{{shopTitle}}</h1>
+<h2>All Cars</h2>
+{{#each allCars}}
+    <img src="/images/{{image}}" style="width:200px; border:3"><br>
+    YEAR: {{year}}<br>
+    MAKE: {{make}}<br>
+    MODEL: {{model}}<br>
+    ${{price}}<br>
+    <br>
+    <a  href="/car/{{id}}">Click Here for Detail</a>
+    <hr>
+{{/each}}
