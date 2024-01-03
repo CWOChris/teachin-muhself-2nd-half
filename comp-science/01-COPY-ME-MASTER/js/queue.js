@@ -26,3 +26,5 @@ newQueue.enqueue("Roger");
 newQueue.enqueue("John");
 
 console.log(newQueue.first);
+
+// the info from 08 student exercise for queues is what you need to add here....  the last line of that
