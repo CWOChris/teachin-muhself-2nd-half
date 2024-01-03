@@ -1,0 +1,1 @@
+This is a good global and functional scoping exercise
