@@ -1,0 +1,1 @@
+The index.js is a closure function
