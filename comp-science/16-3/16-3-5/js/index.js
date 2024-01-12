@@ -9,13 +9,13 @@ function fibonacciUpperLimit(limit) {
     i++;
 }
 return fib.slice(0, -1);
-}
+};
 
 function logFibonacciUpperLimit(limit) {
     const sequence = fibonacciUpperLimit(limit);
     console.log("Fibonacci sequence up to " + limit + ":");
     sequence.forEach(number => console.log(number));
     console.log("Done!");
-}
+};
 
 logFibonacciUpperLimit(10000000000000000000);
